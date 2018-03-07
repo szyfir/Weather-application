@@ -1,1 +1,16 @@
 D:\GIT_REPO\WeatherApp\WeatherApp\WeatherApp\bin\Debug\WeatherApp.exe.config
+D:\GIT_REPO\WeatherApp\WeatherApp\WeatherApp\bin\Debug\WeatherApp.exe
+D:\GIT_REPO\WeatherApp\WeatherApp\WeatherApp\bin\Debug\WeatherApp.pdb
+D:\GIT_REPO\WeatherApp\WeatherApp\WeatherApp\bin\Debug\Newtonsoft.Json.dll
+D:\GIT_REPO\WeatherApp\WeatherApp\WeatherApp\bin\Debug\Newtonsoft.Json.xml
+D:\GIT_REPO\WeatherApp\WeatherApp\WeatherApp\obj\Debug\WeatherApp.csprojResolveAssemblyReference.cache
+D:\GIT_REPO\WeatherApp\WeatherApp\WeatherApp\obj\Debug\MainWindow.g.cs
+D:\GIT_REPO\WeatherApp\WeatherApp\WeatherApp\obj\Debug\App.g.cs
+D:\GIT_REPO\WeatherApp\WeatherApp\WeatherApp\obj\Debug\WeatherApp_MarkupCompile.cache
+D:\GIT_REPO\WeatherApp\WeatherApp\WeatherApp\obj\Debug\WeatherApp_MarkupCompile.lref
+D:\GIT_REPO\WeatherApp\WeatherApp\WeatherApp\obj\Debug\MainWindow.baml
+D:\GIT_REPO\WeatherApp\WeatherApp\WeatherApp\obj\Debug\WeatherApp.g.resources
+D:\GIT_REPO\WeatherApp\WeatherApp\WeatherApp\obj\Debug\WeatherApp.Properties.Resources.resources
+D:\GIT_REPO\WeatherApp\WeatherApp\WeatherApp\obj\Debug\WeatherApp.csproj.GenerateResource.Cache
+D:\GIT_REPO\WeatherApp\WeatherApp\WeatherApp\obj\Debug\WeatherApp.exe
+D:\GIT_REPO\WeatherApp\WeatherApp\WeatherApp\obj\Debug\WeatherApp.pdb
