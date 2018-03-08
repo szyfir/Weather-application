@@ -15,6 +15,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using System.Drawing;
+
 namespace WeatherApp
 {
     /// <summary>
@@ -22,12 +24,12 @@ namespace WeatherApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+
         public MainWindow()
         {
             InitializeComponent();
             GetWeather("Gdańsk");
-            GetForecast();
+            GetForecast("Gdańsk");
         }
         public void GetWeather(string city)
         {
@@ -38,33 +40,40 @@ namespace WeatherApp
                 string url = string.Format("http://api.openweathermap.org/data/2.5/weather?q={0}&APPID=42c1d2a0b9b958f4fbb51e0edc9896a0", city); //json format (weather info api)
                 var json = client.DownloadString(url);
 
-                var results = JsonConvert.DeserializeObject<WeatherInfo.root>(json);
-                WeatherInfo.root Output = results;
+                var results = JsonConvert.DeserializeObject<WeatherInfo.RootObject>(json);
+                WeatherInfo.RootObject Output = results;
                 //wyswietlanie informacji
                 textBox1.Text = string.Format("{0:N1} \u00B0" + "C", Output.main.temp - 273.15);    //przeliczenie temp
                 lLocation.Content = city.ToUpper();
+                image1.Source = SetIcon(Output.weather[0].icon);
             }
-                
-            catch(Exception)
+
+            catch (Exception ex)
             {
-                MessageBox.Show("Nie znaleziono nazwy miejscowości");
+                MessageBox.Show(ex.Message);
             }
-           
+
 
 
 
         }
-        public void GetForecast()
+        public void GetForecast(string city)
         {
-            WebClient client = new WebClient();
-            string url = @"http://api.openweathermap.org/data/2.5/forecast?q=Gdansk&APPID=42c1d2a0b9b958f4fbb51e0edc9896a0";
-            var json = client.DownloadString(url);
+            try
+            {
+                WebClient client = new WebClient();
+                string url = string.Format("http://api.openweathermap.org/data/2.5/forecast?q={0}&APPID=42c1d2a0b9b958f4fbb51e0edc9896a0", city);
+                var json = client.DownloadString(url);
 
-            var results = JsonConvert.DeserializeObject<Forecast.RootObject>(json);
-            Forecast.RootObject Output = results;
-            textBox2.Text = string.Format("{0:N1} \u00B0" + "C", Output.list[1].main.temp - 273.15);
-            textBox3.Text = string.Format("{0}", Output.list[1].dt_txt);
+                var results = JsonConvert.DeserializeObject<Forecast.RootObject>(json);
+                Forecast.RootObject Output = results;
+                textBox2.Text = string.Format("{0:N1} \u00B0" + "C", Output.list[1].main.temp - 273.15);
+                textBox3.Text = string.Format("{0}", Output.list[1].dt_txt);
+            }
+            catch (Exception)
+            {
 
+            }
         }
 
         private void tbSearch_GotFocus(object sender, RoutedEventArgs e)
@@ -75,17 +84,31 @@ namespace WeatherApp
 
 
 
-       
+
 
         private void bSearch_Click(object sender, RoutedEventArgs e)
         {
-            if(string.IsNullOrEmpty(tbSearch.Text)==false)
+            if (string.IsNullOrEmpty(tbSearch.Text) == false)
             {
-
                 GetWeather(tbSearch.Text.ToString());
-                
+                GetForecast(tbSearch.Text.ToString());
             }
-          
+
+        }
+
+
+
+        BitmapImage SetIcon(string idIcon)
+        {
+            string url = string.Format("http://openweathermap.org/img/w/{0}.png",idIcon); // weather icon resource 
+
+            BitmapImage weatherImg = new BitmapImage();
+            weatherImg.BeginInit();
+            weatherImg.UriSource = new Uri(url);
+            weatherImg.EndInit();
+
+            return weatherImg;
         }
     }
 }
+
