@@ -56,6 +56,8 @@ namespace WeatherApp
 
         public class List
         {
+            
+
             public int dt { get; set; }
             public Main main { get; set; }
             public List<Weather> weather { get; set; }

@@ -28,9 +28,9 @@ namespace WeatherApp
         public MainWindow()
         {
             InitializeComponent();
-      
             GetWeather("Gdańsk");
             GetForecast("Gdańsk");
+            
         }
         public void GetWeather(string city)
         {
@@ -65,38 +65,58 @@ namespace WeatherApp
         {
             try
             {
-                WebClient client = new WebClient();
-                string url = string.Format("http://api.openweathermap.org/data/2.5/forecast?q={0}&APPID=42c1d2a0b9b958f4fbb51e0edc9896a0", city);
-                var json = client.DownloadString(url);
 
-                var results = JsonConvert.DeserializeObject<Forecast.RootObject>(json);
-                Forecast.RootObject Output = results;
-                
-                lData1.Content = string.Format(" {0}", Output.list[5].dt_txt);
-                lTemperature1.Content= string.Format("{0:N1} \u00B0" + "C", Output.list[5].main.temp -273.15);
-                lPressure1.Content = string.Format("{0} hPa", Output.list[5].main.pressure);
-                lHumidity1.Content = string.Format("{0} %", Output.list[5].main.humidity);
-                lVwind.Content = string.Format("{0} m/s", Output.list[5].wind.speed);
-                icon1.Source = SetIcon(Output.list[5].weather[0].icon);
+            WebClient client = new WebClient();
+            string url = string.Format("http://api.openweathermap.org/data/2.5/forecast?q={0}&APPID=42c1d2a0b9b958f4fbb51e0edc9896a0", city);
+            var json = client.DownloadString(url);
 
-                lData2.Content = string.Format(" {0}", Output.list[13].dt_txt);
-                lTemperature2.Content = string.Format("{0:N1} \u00B0" + "C", Output.list[13].main.temp - 273.15);
-                lPressure2.Content = string.Format("{0} hPa", Output.list[13].main.pressure);
-                lHumidity2.Content = string.Format("{0} %", Output.list[13].main.humidity);
-                lVwind2.Content = string.Format("{0} m/s", Output.list[13].wind.speed);
-                icon2.Source = SetIcon(Output.list[13].weather[0].icon);
+            var results = JsonConvert.DeserializeObject<Forecast.RootObject>(json);
+            Forecast.RootObject Output = results;
 
-                lData3.Content = string.Format(" {0}", Output.list[21].dt_txt);
-                lTemperature3.Content = string.Format("{0:N1} \u00B0" + "C", Output.list[21].main.temp - 273.15);
-                lPressure3.Content = string.Format("{0} hPa", Output.list[21].main.pressure);
-                lHumidity3.Content = string.Format("{0} %", Output.list[21].main.humidity);
-                lVwind3.Content = string.Format("{0} m/s", Output.list[21].wind.speed);
-                icon3.Source = SetIcon(Output.list[21].weather[0].icon);
+            lData1.Content = string.Format(" {0}", Output.list[5].dt_txt);
+            lTemperature1.Content = string.Format("{0:N1} \u00B0" + "C", Output.list[5].main.temp - 273.15);
+            lPressure1.Content = string.Format("{0} hPa", Output.list[5].main.pressure);
+            lHumidity1.Content = string.Format("{0} %", Output.list[5].main.humidity);
+            lVwind.Content = string.Format("{0} m/s", Output.list[5].wind.speed);
+            icon1.Source = SetIcon(Output.list[5].weather[0].icon);
+
+            lData2.Content = string.Format(" {0}", Output.list[13].dt_txt);
+            lTemperature2.Content = string.Format("{0:N1} \u00B0" + "C", Output.list[13].main.temp - 273.15);
+            lPressure2.Content = string.Format("{0} hPa", Output.list[13].main.pressure);
+            lHumidity2.Content = string.Format("{0} %", Output.list[13].main.humidity);
+            lVwind2.Content = string.Format("{0} m/s", Output.list[13].wind.speed);
+            icon2.Source = SetIcon(Output.list[13].weather[0].icon);
+
+            lData3.Content = string.Format(" {0}", Output.list[21].dt_txt);
+            lTemperature3.Content = string.Format("{0:N1} \u00B0" + "C", Output.list[21].main.temp - 273.15);
+            lPressure3.Content = string.Format("{0} hPa", Output.list[21].main.pressure);
+            lHumidity3.Content = string.Format("{0} %", Output.list[21].main.humidity);
+            lVwind3.Content = string.Format("{0} m/s", Output.list[21].wind.speed);
+            icon3.Source = SetIcon(Output.list[21].weather[0].icon);
+
+            
+            DateTime actualtime = DateTime.Parse(Output.list[0].dt_txt);
+           
+            DateTime t22 = DateTime.Parse("2012/12/12 22:00:00.000");
+            DateTime t6 = DateTime.Parse("2012/12/12 06:00:00.000");
+           
+
+            if (t22.TimeOfDay>actualtime.TimeOfDay && t6.TimeOfDay<actualtime.TimeOfDay)
+            {               
+                var uriSource = new Uri(@"/WeatherApp;component/Images/slonce.jpg", UriKind.Relative);
+                backgroundImage.Source = new BitmapImage(uriSource);
 
             }
-            catch (Exception)
+            else
             {
-                
+                var uriSource = new Uri(@"/WeatherApp;component/Images/morze-ksiezyc-noc-gory.jpeg", UriKind.Relative);
+                backgroundImage.Source = new BitmapImage(uriSource);
+            }
+
+            }
+            catch(Exception)
+            {
+
             }
         }
 
@@ -105,10 +125,6 @@ namespace WeatherApp
             tbSearch.Text = null;
 
         }
-
-
-
-
 
         private void bSearch_Click(object sender, RoutedEventArgs e)
         {
