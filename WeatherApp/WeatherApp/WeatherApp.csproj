@@ -103,6 +103,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\1925499-chmury.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\188920_rzeka-las-chmury-krajobraz.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fototapeta-krajobraz-464_19380.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\slonce.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -28,6 +28,7 @@ namespace WeatherApp
         public MainWindow()
         {
             InitializeComponent();
+      
             GetWeather("Gdańsk");
             GetForecast("Gdańsk");
         }
@@ -46,7 +47,9 @@ namespace WeatherApp
                 lActualTemp.Content = string.Format("{0:N1} \u00B0" + "C", Output.main.temp - 273.15);    //przeliczenie temp
                 lLocation.Content = city.ToUpper();
                 image1.Source = SetIcon(Output.weather[0].icon);
-                lActualPressure.Content = string.Format("{0} HPa", Output.main.pressure);
+                lActualPressure.Content = string.Format("{0} hPa", Output.main.pressure);
+                lActualHumidity.Content = string.Format("{0} %", Output.main.humidity);
+               
             }
 
             catch (Exception ex)
@@ -70,6 +73,13 @@ namespace WeatherApp
                 Forecast.RootObject Output = results;
                 //Co.Text = string.Format("{0:N1} \u00B0" + "C", Output.list[1].main.temp - 273.15);
                 //textBox3.Text = string.Format("{0}", Output.list[1].dt_txt);
+                lData1.Content = string.Format(" {0}", Output.list[2].dt_txt);
+                lTemperature1.Content= string.Format("{0:N1} \u00B0" + "C", Output.list[2].main.temp -273.15);
+                lPressure1.Content = string.Format("{0} hPa", Output.list[2].main.pressure);
+                lHumidity1.Content = string.Format("{0} %", Output.list[2].main.humidity);
+                lVwind.Content = string.Format("{0} m/s", Output.list[2].wind.speed);
+                icon1.Source = SetIcon(Output.list[2].weather[0].icon);
+
             }
             catch (Exception)
             {
