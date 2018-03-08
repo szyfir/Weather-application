@@ -43,9 +43,10 @@ namespace WeatherApp
                 var results = JsonConvert.DeserializeObject<WeatherInfo.RootObject>(json);
                 WeatherInfo.RootObject Output = results;
                 //wyswietlanie informacji
-                textBox1.Text = string.Format("{0:N1} \u00B0" + "C", Output.main.temp - 273.15);    //przeliczenie temp
+                lActualTemp.Content = string.Format("{0:N1} \u00B0" + "C", Output.main.temp - 273.15);    //przeliczenie temp
                 lLocation.Content = city.ToUpper();
                 image1.Source = SetIcon(Output.weather[0].icon);
+                lActualPressure.Content = string.Format("{0} HPa", Output.main.pressure);
             }
 
             catch (Exception ex)
@@ -67,8 +68,8 @@ namespace WeatherApp
 
                 var results = JsonConvert.DeserializeObject<Forecast.RootObject>(json);
                 Forecast.RootObject Output = results;
-                textBox2.Text = string.Format("{0:N1} \u00B0" + "C", Output.list[1].main.temp - 273.15);
-                textBox3.Text = string.Format("{0}", Output.list[1].dt_txt);
+                //Co.Text = string.Format("{0:N1} \u00B0" + "C", Output.list[1].main.temp - 273.15);
+                //textBox3.Text = string.Format("{0}", Output.list[1].dt_txt);
             }
             catch (Exception)
             {
