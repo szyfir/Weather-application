@@ -52,9 +52,9 @@ namespace WeatherApp
                
             }
 
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Błędna nazwa miejscowości");
             }
 
 
@@ -71,19 +71,32 @@ namespace WeatherApp
 
                 var results = JsonConvert.DeserializeObject<Forecast.RootObject>(json);
                 Forecast.RootObject Output = results;
-                //Co.Text = string.Format("{0:N1} \u00B0" + "C", Output.list[1].main.temp - 273.15);
-                //textBox3.Text = string.Format("{0}", Output.list[1].dt_txt);
-                lData1.Content = string.Format(" {0}", Output.list[2].dt_txt);
-                lTemperature1.Content= string.Format("{0:N1} \u00B0" + "C", Output.list[2].main.temp -273.15);
-                lPressure1.Content = string.Format("{0} hPa", Output.list[2].main.pressure);
-                lHumidity1.Content = string.Format("{0} %", Output.list[2].main.humidity);
-                lVwind.Content = string.Format("{0} m/s", Output.list[2].wind.speed);
-                icon1.Source = SetIcon(Output.list[2].weather[0].icon);
+                
+                lData1.Content = string.Format(" {0}", Output.list[5].dt_txt);
+                lTemperature1.Content= string.Format("{0:N1} \u00B0" + "C", Output.list[5].main.temp -273.15);
+                lPressure1.Content = string.Format("{0} hPa", Output.list[5].main.pressure);
+                lHumidity1.Content = string.Format("{0} %", Output.list[5].main.humidity);
+                lVwind.Content = string.Format("{0} m/s", Output.list[5].wind.speed);
+                icon1.Source = SetIcon(Output.list[5].weather[0].icon);
+
+                lData2.Content = string.Format(" {0}", Output.list[13].dt_txt);
+                lTemperature2.Content = string.Format("{0:N1} \u00B0" + "C", Output.list[13].main.temp - 273.15);
+                lPressure2.Content = string.Format("{0} hPa", Output.list[13].main.pressure);
+                lHumidity2.Content = string.Format("{0} %", Output.list[13].main.humidity);
+                lVwind2.Content = string.Format("{0} m/s", Output.list[13].wind.speed);
+                icon2.Source = SetIcon(Output.list[13].weather[0].icon);
+
+                lData3.Content = string.Format(" {0}", Output.list[21].dt_txt);
+                lTemperature3.Content = string.Format("{0:N1} \u00B0" + "C", Output.list[21].main.temp - 273.15);
+                lPressure3.Content = string.Format("{0} hPa", Output.list[21].main.pressure);
+                lHumidity3.Content = string.Format("{0} %", Output.list[21].main.humidity);
+                lVwind3.Content = string.Format("{0} m/s", Output.list[21].wind.speed);
+                icon3.Source = SetIcon(Output.list[21].weather[0].icon);
 
             }
             catch (Exception)
             {
-
+                
             }
         }
 

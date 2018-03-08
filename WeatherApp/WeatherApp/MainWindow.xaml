@@ -50,12 +50,36 @@
                 <Label x:Name="lData" Content="Data:" Foreground="White" Height="30" VerticalAlignment="Top" Margin="10"></Label>
                 <Label x:Name="lData1" Content="" Foreground="White" Height="30" VerticalAlignment="Top" Margin="10"></Label>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="30,40,0,0" >
+                <StackPanel Orientation="Horizontal" Margin="30,40,0,183" >
                 <Label x:Name="lTemperature1" Content="" FontSize="20" Foreground="White" Height="30"/>
                 <Label x:Name="lPressure1" Content="" FontSize="20"  Foreground="White" Height="30" />
                 <Label x:Name="lHumidity1" Content="" FontSize="20" Foreground="White" Height="30" />
                 <Label x:Name="lVwind" Content="" FontSize="20" Foreground="White" Height="30" />
                 <Image x:Name="icon1" Height="47" Width="51" />
+                </StackPanel>
+               
+                <StackPanel Orientation="Horizontal" Margin="0,80,0,0">
+                    <Label x:Name="lData_2" Content="Data:" Foreground="White" Height="30" VerticalAlignment="Top" Margin="10"></Label>
+                    <Label x:Name="lData2" Content="" Foreground="White" Height="30" VerticalAlignment="Top" Margin="10"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="30,120,0,96" >
+                    <Label x:Name="lTemperature2" Content="" FontSize="20" Foreground="White" Height="30"/>
+                    <Label x:Name="lPressure2" Content="" FontSize="20"  Foreground="White" Height="30" />
+                    <Label x:Name="lHumidity2" Content="" FontSize="20" Foreground="White" Height="30" />
+                    <Label x:Name="lVwind2" Content="" FontSize="20" Foreground="White" Height="30" />
+                    <Image x:Name="icon2" Height="47" Width="51" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,160,0,0">
+                    <Label x:Name="lData_3" Content="Data:" Foreground="White" Height="30" VerticalAlignment="Top" Margin="10"></Label>
+                    <Label x:Name="lData3" Content="" Foreground="White" Height="30" VerticalAlignment="Top" Margin="10"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="30,200,0,0" >
+                    <Label x:Name="lTemperature3" Content="" FontSize="20" Foreground="White" Height="30"/>
+                    <Label x:Name="lPressure3" Content="" FontSize="20"  Foreground="White" Height="30" />
+                    <Label x:Name="lHumidity3" Content="" FontSize="20" Foreground="White" Height="30" />
+                    <Label x:Name="lVwind3" Content="" FontSize="20" Foreground="White" Height="30" />
+                    <Image x:Name="icon3" Height="47" Width="51" />
                 </StackPanel>
             </Grid> 
         </GroupBox>
