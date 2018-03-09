@@ -35,8 +35,10 @@
 
         <GroupBox x:Name="gb1" Header="Pogoda dzisiaj" FontFamily="Times New Roman" FontSize="15" Foreground="White" Grid.Row="3" Grid.Column="0" Height="280" Width="auto" Margin="20,0,30,0" VerticalAlignment="Top">
             <Grid>
-                <Label x:Name="lPressure" Content="Ciśnienie:" Foreground="White" FontSize="25" Margin="98,44,418,166" />
-                <Label x:Name="lActualPressure" Content="" Foreground="White" FontSize="25" Margin="98,95,418,122"  VerticalAlignment="Center"  />
+                <Label x:Name="lWind" Content="Wiatr:" Foreground="White" FontSize="25" Margin="0,47,561,166"/>
+                <Label x:Name="lActualWind" Content="" Foreground="White" FontSize="25" Margin="0,95,546,122"/>
+                <Label x:Name="lPressure" Content="Ciśnienie:" Foreground="White" FontSize="25" Margin="108,44,408,166" />
+                <Label x:Name="lActualPressure" Content="" Foreground="White" FontSize="25" Margin="108,95,408,122"  VerticalAlignment="Center"  />
                 <Label x:Name="lHumidity" Content="Wilgotność:" Foreground="White" FontSize="25" Margin="246,44,273,166"/>
                 <Label x:Name="lActualHumidity" Content="" Foreground="White" FontSize="25" Margin="246,95,283,122" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
                 <Label x:Name="lActualTemp" Content="" Foreground="White" FontSize="50" Margin="391,75,105,114"  VerticalAlignment="Center" />
