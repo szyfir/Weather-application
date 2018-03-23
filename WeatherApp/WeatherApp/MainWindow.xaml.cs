@@ -50,6 +50,7 @@ namespace WeatherApp
                 lActualPressure.Content = string.Format("{0} hPa", Output.main.pressure);
                 lActualHumidity.Content = string.Format("{0} %", Output.main.humidity);
                 lActualWind.Content = string.Format("{0} m/s", Output.wind.speed);
+                
                
             }
 
