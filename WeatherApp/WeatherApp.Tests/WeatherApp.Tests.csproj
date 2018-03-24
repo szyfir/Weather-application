@@ -83,8 +83,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="OpenWeatherApi_explorations.cs" />
+    <Compile Include="OpenWeatherApi_Forecast_explorations.cs" />
+    <Compile Include="OpenWeatherApi_Weather_explorations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RowCommunicaion.cs" />
+    <Compile Include="Weather.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
